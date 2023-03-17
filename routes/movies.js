@@ -15,7 +15,6 @@ router.post('/addMovie', (req, res) => {
     const today = new Date();
         Movie.find().then(movies => {
             if(!movies.includes(e => e.id === req.body.id)){
-                console.log(movies);
                 const newMovie = new Movie({
                     id: req.body.id,
                     originalTitle: req.body.original_title,
