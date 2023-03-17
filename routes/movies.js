@@ -12,6 +12,7 @@ router.get('/all', (req, res) => {
 })
 
 router.post('/addMovie', (req, res) => {
+    const today = new Date();
         Movie.find().then(movies => {
             if(!movies.includes(e => e.id === req.body.id)){
                 console.log(movies);
@@ -26,7 +27,9 @@ router.post('/addMovie', (req, res) => {
                     mediaType: req.body.media_type,
                     note: req.body.vote_average,
                     nbVoters: req.body.vote_count,
+                    category: req.body.category,
                     link: {vf:[], vost:[], vo:[]},
+                    date: today,
                 });
 
                 newMovie.save().then(movie => {

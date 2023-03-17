@@ -18,6 +18,8 @@ const movieSchema = mongoose.Schema({
     note: Number,
     nbVoters: Number, 
     link: links,
+    date: String,
+    category: String,
 });
 
 const Movie = mongoose.model('movies', movieSchema);
