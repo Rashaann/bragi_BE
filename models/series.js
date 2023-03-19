@@ -17,8 +17,7 @@ const serieSchema = mongoose.Schema({
     mediaType: String,
     note: Number,
     nbVoters: Number, 
-    linksS1: [links],
-    linksS2: [links],
+    link: [links],
     date: String,
     category: String,
 });
