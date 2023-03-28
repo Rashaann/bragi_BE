@@ -55,7 +55,7 @@ router.get('/movieUrl/:id', (req, res) => {
     }).then(response => response.json())
     .then(movie => {
         //console.log(headers);
-        let url = 'https://' + movie.variants[0].hosts[0] + movie.variants[0].path;
+        let url = 'https://' + movie.variants[1].hosts[0] + movie.variants[1].path;
         res.json({result: true, url});
     })
 })
