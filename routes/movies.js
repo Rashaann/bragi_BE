@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const fetch = require('node-fetch');
+const { Headers } = fetch;
 const uid2 = require('uid2');
 const Movie = require('../models/movies');
 
@@ -36,7 +37,27 @@ router.post('/addMovie', (req, res) => {
                 })
             }
         })
-    });
+});
 
+
+
+let base64 = require('base-64');
+let headers = new fetch.Headers();
+let token = process.env.PCLOUD_TOKEN;
+
+headers.set('Authorization', 'Bearer ' + token);
+
+
+router.get('/movieUrl/:id', (req, res) => {
+    fetch(`https://eapi.pcloud.com/getvideolinks?fileid=${req.params.id}`, {
+        method: 'GET',
+        headers: headers,
+    }).then(response => response.json())
+    .then(movie => {
+        //console.log(headers);
+        let url = 'https://' + movie.variants[0].hosts[0] + movie.variants[0].path;
+        res.json({result: true, url});
+    })
+})
 
 module.exports = router;
