@@ -27,7 +27,7 @@ router.post('/addSerie', (req, res) => {
                     note: req.body.vote_average,
                     nbVoters: req.body.vote_count,
                     category: req.body.category,
-                    link: {S1:{}, S2:{}, S3:{}},
+                    links: {S1:[], S2:[], S3:[]},
                     date: today,
                 });
 
@@ -36,7 +36,9 @@ router.post('/addSerie', (req, res) => {
                 })
             }
         })
-    });
+});
+
+
 
 
 module.exports = router;
