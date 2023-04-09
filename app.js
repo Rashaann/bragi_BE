@@ -9,6 +9,7 @@ const cors = require('cors');
 var indexRouter = require('./routes/index');
 var moviesRouter = require('./routes/movies');
 var seriesRouter = require('./routes/series');
+var tvRouter = require('./routes/tv');
 
 var app = express();
 app.use(cors());
@@ -21,5 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
 app.use('/series', seriesRouter);
+app.use('/tv', tvRouter);
 
 module.exports = app;
