@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var moviesRouter = require('./routes/movies');
 var seriesRouter = require('./routes/series');
 var tvRouter = require('./routes/tv');
+var usersRouter = require('./routes/users');
 
 var app = express();
 app.use(cors());
@@ -23,5 +24,6 @@ app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
 app.use('/series', seriesRouter);
 app.use('/tv', tvRouter);
+app.use('/users', usersRouter);
 
 module.exports = app;
